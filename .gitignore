@@ -50,8 +50,9 @@ tmp
 temp
 
 # START Ruler Generated Files
-/.mcp.json
-/.mcp.json.bak
-/CLAUDE.md
-/CLAUDE.md.bak
+*.bak
+.mcp.json
+.mcp.json.bak
+CLAUDE.md
+CLAUDE.md.bak
 # END Ruler Generated Files

@@ -1,7 +1,20 @@
-# verge
+# Verge
 
+**Supercharge your spreadsheet with an AI-powered web scraper. Extract any data from any website into your Google Sheets in seconds.**
 
-## Features
+## The Problem
+
+GTM teams struggle heavily with data enrichment, especially in the SMB space. Existing tools can't consistently get the data you need because that data lives on the prospect's site—not on LinkedIn or other common sources used for Enterprise.
+
+Most enrichment tools also aren't intuitive for non-technical folks.
+
+## The Solution
+
+Verge is an AI data extraction tool built right into Google Sheets. No new tools, no new dependencies—just prompt and get the data you need.
+
+Built on a platform that many GTM teams are already familiar with, Verge makes web scraping accessible to everyone.
+
+## Tech Stack
 
 - **TypeScript** - For type safety and improved developer experience
 - **TanStack Router** - File-based routing with full type safety
