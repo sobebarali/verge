@@ -7,12 +7,12 @@ This section outlines planned features for Verge. These features are not yet imp
 
 ## Planned Features
 
-| Feature | Status | Description |
-|---------|--------|-------------|
-| [Web Scraping API](/roadmap/web-scraping-api/) | Planned | Core web scraping endpoints |
-| [AI Extraction](/roadmap/ai-extraction/) | Planned | LLM-powered data extraction |
-| [Google Sheets Integration](/roadmap/google-sheets-integration/) | Planned | Native Sheets integration |
-| [Prompt Queries](/roadmap/prompt-queries/) | Planned | Natural language data queries |
+| Feature | Status | Technology | Description |
+|---------|--------|------------|-------------|
+| [Web Scraping API](/roadmap/web-scraping-api/) | Planned | Firecrawl | Core web scraping endpoints |
+| [AI Extraction](/roadmap/ai-extraction/) | Planned | Firecrawl | LLM-powered data extraction |
+| [Prompt Queries](/roadmap/prompt-queries/) | Planned | OpenAI Agents SDK | Natural language data queries |
+| [Google Sheets Integration](/roadmap/google-sheets-integration/) | Planned | Google Sheets API | Native Sheets integration |
 
 ## Vision
 

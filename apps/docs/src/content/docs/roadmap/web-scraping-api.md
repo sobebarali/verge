@@ -7,9 +7,13 @@ description: "[PLANNED] Core web scraping endpoints"
 This feature is planned for future development and is not yet implemented.
 :::
 
+## Technology Choice
+
+**Firecrawl** - A managed web scraping API that handles JavaScript rendering, anti-bot measures, and content cleaning. See [Technology Decisions](/architecture/technology-decisions/) for rationale.
+
 ## Overview
 
-The Web Scraping API will provide endpoints for extracting data from websites.
+The Web Scraping API will provide endpoints for extracting data from websites, powered by Firecrawl.
 
 ## Planned Endpoints
 

@@ -7,9 +7,13 @@ description: "[PLANNED] Natural language data queries"
 This feature is planned for future development and is not yet implemented.
 :::
 
+## Technology Choice
+
+**OpenAI Agents SDK (Python)** - Multi-agent framework with function tools for natural language → database query conversion. Runs as a separate microservice at `apps/agents/`. See [Technology Decisions](/architecture/technology-decisions/) for rationale.
+
 ## Overview
 
-Prompt Queries will allow users to query their scraped data using natural language, making data retrieval intuitive for non-technical users.
+Prompt Queries will allow users to query their scraped data using natural language, making data retrieval intuitive for non-technical users. Powered by OpenAI Agents SDK.
 
 ## Core Concept
 

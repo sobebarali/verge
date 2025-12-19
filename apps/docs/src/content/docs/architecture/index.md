@@ -13,12 +13,18 @@ This section covers the system architecture, data flow, and technology decisions
 │   (TanStack)    │     │   (tRPC)        │     │   (Mongoose)    │
 └─────────────────┘     └─────────────────┘     └─────────────────┘
         │                       │
-        │                       │
-        ▼                       ▼
-┌─────────────────┐     ┌─────────────────┐
-│  Auth Client    │────▶│  Better-Auth    │
-│  (React)        │     │  + Polar        │
-└─────────────────┘     └─────────────────┘
+        │                       ├───────────────────────┐
+        ▼                       ▼                       ▼
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│  Auth Client    │────▶│  Better-Auth    │     │  Firecrawl API  │
+│  (React)        │     │  + Polar        │     │  (Web Scraping) │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+                                │
+                                ▼
+                        ┌─────────────────┐
+                        │  Python Agents  │
+                        │  (OpenAI SDK)   │
+                        └─────────────────┘
 ```
 
 ## Package Dependencies
@@ -43,9 +49,19 @@ apps/server ───▶ @verge/api
 |-----------|----------|---------|
 | Web App | `apps/web/` | React frontend with TanStack Router |
 | Server | `apps/server/` | Hono HTTP server with tRPC integration |
+| Agents Service | `apps/agents/` | Python AI agents (OpenAI Agents SDK) |
 | API Package | `packages/api/` | tRPC routers and procedures |
 | Auth Package | `packages/auth/` | Better-Auth configuration |
 | DB Package | `packages/db/` | Mongoose models and connection |
+
+## External Services
+
+| Service | Purpose |
+|---------|---------|
+| Firecrawl | Web scraping and LLM-powered data extraction |
+| OpenAI | LLM provider for agents and extraction |
+| MongoDB Atlas | Database hosting |
+| Polar | Payment processing |
 
 ## Sections
 

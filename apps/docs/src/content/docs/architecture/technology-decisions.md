@@ -162,6 +162,67 @@ npm run check
 - **npm compatible**: Drop-in replacement
 - **Built-in bundler**: Can replace esbuild/webpack
 
+## Web Scraping: Firecrawl
+
+**Choice**: Firecrawl over Puppeteer, Playwright, or custom scraping
+
+**Rationale**:
+- **LLM-ready output**: Converts websites to clean markdown
+- **Built-in AI extraction**: Schema-based structured data extraction
+- **JavaScript rendering**: Handles dynamic SPAs automatically
+- **Anti-bot handling**: Manages retries, proxies, and blocks
+- **TypeScript SDK**: Native Zod schema support
+
+```typescript
+// Schema-based extraction with Zod
+import Firecrawl from '@mendable/firecrawl-js';
+import { z } from 'zod';
+
+const schema = z.object({
+  companyName: z.string(),
+  pricing: z.array(z.object({
+    tier: z.string(),
+    price: z.number(),
+  })),
+});
+
+const result = await firecrawl.extract({
+  urls: ['https://example.com'],
+  schema,
+  prompt: 'Extract company name and pricing tiers',
+});
+```
+
+## AI Agents: OpenAI Agents SDK
+
+**Choice**: OpenAI Agents SDK (Python) over LangChain, custom agents
+
+**Rationale**:
+- **Official OpenAI support**: First-party SDK from OpenAI
+- **Multi-agent workflows**: Handoffs between specialized agents
+- **Function tools**: Easy Python function → LLM tool conversion
+- **Guardrails**: Built-in input/output validation
+- **Mature Python SDK**: More feature-complete than JS alternatives
+
+```python
+# Natural language → Database query agent
+from agents import Agent, function_tool
+
+@function_tool
+def query_scraped_data(query: str) -> str:
+    """Execute a database query on scraped data"""
+    # Agent parses natural language → MongoDB query
+    return execute_mongo_query(query)
+
+agent = Agent(
+    name="Query Assistant",
+    instructions="Convert natural language to database queries",
+    tools=[query_scraped_data],
+)
+```
+
+**Note**: Runs as a separate Python microservice (`apps/agents/`) communicating with the main server via HTTP.
+
 ## Summary Table
 
 | Category | Choice | Alternative Considered |
@@ -175,3 +236,5 @@ npm run check
 | Router | TanStack Router | React Router |
 | Styling | Tailwind + shadcn | CSS Modules |
 | Lint/Format | Biome | ESLint + Prettier |
+| Web Scraping | Firecrawl | Puppeteer, Playwright |
+| AI Agents | OpenAI Agents SDK | LangChain, custom |

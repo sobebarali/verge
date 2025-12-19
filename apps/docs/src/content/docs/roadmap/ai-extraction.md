@@ -7,9 +7,13 @@ description: "[PLANNED] LLM-powered data extraction"
 This feature is planned for future development and is not yet implemented.
 :::
 
+## Technology Choice
+
+**Firecrawl LLM Extraction** - Firecrawl's built-in `/extract` endpoint with schema support (Zod/JSON Schema). See [Technology Decisions](/architecture/technology-decisions/) for rationale.
+
 ## Overview
 
-AI Extraction will use Large Language Models to intelligently extract structured data from web pages based on natural language prompts.
+AI Extraction will use Large Language Models to intelligently extract structured data from web pages based on natural language prompts, powered by Firecrawl's LLM extraction capabilities.
 
 ## Core Concept
 
