@@ -1,22 +1,22 @@
 {
-  "name": "@verge/db",
-  "type": "module",
-  "exports": {
-    ".": {
-      "default": "./src/index.ts"
-    },
-    "./*": {
-      "default": "./src/*.ts"
-    }
-  },
-  "scripts": {},
-  "devDependencies": {
-    "typescript": "^5",
-    "@verge/config": "*"
-  },
-  "dependencies": {
-    "mongoose": "^8.14.0",
-    "dotenv": "^17.2.2",
-    "zod": "^4.1.13"
-  }
+	"name": "@verge/db",
+	"type": "module",
+	"exports": {
+		".": {
+			"default": "./src/index.ts"
+		},
+		"./*": {
+			"default": "./src/*.ts"
+		}
+	},
+	"scripts": {},
+	"devDependencies": {
+		"typescript": "^5",
+		"@verge/config": "*"
+	},
+	"dependencies": {
+		"mongoose": "^8.14.0",
+		"dotenv": "^17.2.2",
+		"zod": "^4.1.13"
+	}
 }
