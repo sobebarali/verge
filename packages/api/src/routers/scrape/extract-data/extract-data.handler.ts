@@ -11,7 +11,11 @@ export const extractDataHandler = protectedProcedure
 		const { logger, session } = ctx;
 
 		logger.info(
-			{ url: input.url, userId: session.user?.id, hasSchema: !!input.outputSchema },
+			{
+				url: input.url,
+				userId: session.user?.id,
+				hasSchema: !!input.outputSchema,
+			},
 			"Extract data request initiated",
 		);
 

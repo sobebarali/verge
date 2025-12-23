@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SuccessRouteImport } from './routes/success'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as ExtractRouteImport } from './routes/extract'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -22,6 +23,11 @@ const SuccessRoute = SuccessRouteImport.update({
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExtractRoute = ExtractRouteImport.update({
+  id: '/extract',
+  path: '/extract',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardRoute = DashboardRouteImport.update({
@@ -38,12 +44,14 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
+  '/extract': typeof ExtractRoute
   '/login': typeof LoginRoute
   '/success': typeof SuccessRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
+  '/extract': typeof ExtractRoute
   '/login': typeof LoginRoute
   '/success': typeof SuccessRoute
 }
@@ -51,20 +59,22 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
+  '/extract': typeof ExtractRoute
   '/login': typeof LoginRoute
   '/success': typeof SuccessRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dashboard' | '/login' | '/success'
+  fullPaths: '/' | '/dashboard' | '/extract' | '/login' | '/success'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dashboard' | '/login' | '/success'
-  id: '__root__' | '/' | '/dashboard' | '/login' | '/success'
+  to: '/' | '/dashboard' | '/extract' | '/login' | '/success'
+  id: '__root__' | '/' | '/dashboard' | '/extract' | '/login' | '/success'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DashboardRoute: typeof DashboardRoute
+  ExtractRoute: typeof ExtractRoute
   LoginRoute: typeof LoginRoute
   SuccessRoute: typeof SuccessRoute
 }
@@ -83,6 +93,13 @@ declare module '@tanstack/react-router' {
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/extract': {
+      id: '/extract'
+      path: '/extract'
+      fullPath: '/extract'
+      preLoaderRoute: typeof ExtractRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dashboard': {
@@ -105,6 +122,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DashboardRoute: DashboardRoute,
+  ExtractRoute: ExtractRoute,
   LoginRoute: LoginRoute,
   SuccessRoute: SuccessRoute,
 }

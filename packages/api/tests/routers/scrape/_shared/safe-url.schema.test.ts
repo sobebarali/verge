@@ -97,7 +97,9 @@ describe("safeUrl schema", () => {
 		});
 
 		it("rejects 169.254.x.x link-local (AWS metadata)", () => {
-			const result = safeUrl.safeParse("http://169.254.169.254/latest/meta-data");
+			const result = safeUrl.safeParse(
+				"http://169.254.169.254/latest/meta-data",
+			);
 			expect(result.success).toBe(false);
 		});
 	});

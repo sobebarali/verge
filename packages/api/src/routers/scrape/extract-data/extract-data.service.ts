@@ -1,6 +1,9 @@
 import type { Logger } from "pino";
 import { getFirecrawlClient } from "../../../services/firecrawl";
-import type { ExtractDataInput, ExtractDataOutput } from "./extract-data.schema";
+import type {
+	ExtractDataInput,
+	ExtractDataOutput,
+} from "./extract-data.schema";
 
 export async function extractData(
 	input: ExtractDataInput,
@@ -10,7 +13,8 @@ export async function extractData(
 	const firecrawl = getFirecrawlClient();
 
 	const formats: Array<
-		"markdown" | { type: "json"; schema?: Record<string, unknown>; prompt?: string }
+		| "markdown"
+		| { type: "json"; schema?: Record<string, unknown>; prompt?: string }
 	> = ["markdown"];
 
 	if (outputSchema) {
