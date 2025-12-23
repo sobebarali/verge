@@ -6,6 +6,8 @@
 2. **Search Before Building** - Always search online for existing packages or services before implementing custom solutions
 3. **No Dead Code** - Remove unused code after implementation, keep codebase clean
 4. **Meaningful Comments Only** - Only add comments that explain "why", not "what"
+5. **Read Docs First** - Read existing documentation before starting any implementation
+6. **Suggest Improvements** - If a better approach exists, suggest it before implementing
 
 ## Type Safety
 

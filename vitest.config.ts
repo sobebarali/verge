@@ -1,4 +1,7 @@
+import { config } from "dotenv";
 import { defineConfig } from "vitest/config";
+
+config({ path: "./apps/server/.env" });
 
 export default defineConfig({
 	test: {

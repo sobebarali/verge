@@ -33,6 +33,15 @@ const envSchema = z.object({
 	LOG_LEVEL: z
 		.enum(["fatal", "error", "warn", "info", "debug", "trace"])
 		.default("info"),
+
+	// Firecrawl
+	FIRECRAWL_API_KEY: z
+		.string()
+		.min(1, "FIRECRAWL_API_KEY is required")
+		.refine(
+			(key) => key.startsWith("fc-"),
+			"FIRECRAWL_API_KEY must start with 'fc-'",
+		),
 });
 
 function validateEnv() {
