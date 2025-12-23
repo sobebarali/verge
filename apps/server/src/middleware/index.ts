@@ -1,1 +1,1 @@
-export { authRateLimiter, rateLimiter, securityHeaders } from "./security";
+export { authRateLimiter, rateLimiter } from "./security";

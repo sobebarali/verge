@@ -12,7 +12,7 @@ export const pinoLogger = (logger: Logger) =>
 		const reqLogger = logger.child({ requestId, method, path });
 		c.set("logger", reqLogger);
 
-		reqLogger.info("Request started");
+		reqLogger.debug("Request started");
 
 		try {
 			await next();
@@ -25,15 +25,10 @@ export const pinoLogger = (logger: Logger) =>
 				// Body may have already been consumed
 			}
 
-			const session = c.get("session") as
-				| { user?: { id?: string } }
-				| undefined;
-
 			reqLogger.error(
 				{
 					err: error,
 					requestBody,
-					userId: session?.user?.id,
 				},
 				"Request failed",
 			);
@@ -42,10 +37,6 @@ export const pinoLogger = (logger: Logger) =>
 
 		const duration = Date.now() - start;
 		const status = c.res.status;
-		const session = c.get("session") as { user?: { id?: string } } | undefined;
 
-		reqLogger.info(
-			{ status, duration, userId: session?.user?.id },
-			"Request completed",
-		);
+		reqLogger.info({ status, duration }, "Request completed");
 	});
